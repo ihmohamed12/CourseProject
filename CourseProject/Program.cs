@@ -1,4 +1,5 @@
-using CourseProject.Areas.Admin.Data;
+
+using CourseProject.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("MySqlDevDB"));
 });
-
+// for when you want a new object created in dependencie injection
+//builder.Services.AddScoped<ApplicationDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

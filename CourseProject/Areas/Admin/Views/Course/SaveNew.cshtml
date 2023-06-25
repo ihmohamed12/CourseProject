@@ -1,4 +1,4 @@
-﻿@using CourseProject.Areas.Admin.Models;
+﻿@using CourseProject.Data.Entities;
 
 @model Course
 
@@ -42,8 +42,8 @@
 
 
       <form asp-action="SaveNew" >
-
-        <div class="card">
+               <div asp-validation-summary="All">  </div>
+            <div class="card">
             <div class="card-header border-bottom-0 py-4">
                 <h5> Add Course </h5>
             </div>
@@ -62,9 +62,10 @@
                                     Course title<span class="required">*</span>
                                 </label>
                                 <div class="col-md-9">
-                                    <input type="text" asp-for="title" type="text" class="form-control" id="course_title"
+                                    <input  type="text" asp-for="title" type="text" class="form-control" id="course_title"
                                            placeholder="Enter course title"
-                                           required="">
+                                           >
+                                    <span asp-validation-for="title" class="alert-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
@@ -74,7 +75,7 @@
                                 <div class="col-md-9">
                                     <input type="text" asp-for="price" type="number" class="form-control" id="course_title"
                                            placeholder="Enter course price"
-                                           required="">
+                                           >
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
@@ -84,7 +85,7 @@
                                 <div class="col-md-9">
                                     <input type="text" asp-for="studentsEnrolled" type="number" class="form-control" id="course_title"
                                            placeholder="Enter number of students"
-                                           required="">
+                                           >
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
@@ -94,7 +95,7 @@
                                 <div class="col-md-9">
                                     <input type="text" asp-for="img" type="text" class="form-control" id="course_title"
                                            placeholder="Enter course Image URL"
-                                           required="">
+                                           >
                                 </div>
                             </div>
 

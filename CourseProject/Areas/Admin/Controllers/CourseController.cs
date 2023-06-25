@@ -1,5 +1,5 @@
-﻿using CourseProject.Areas.Admin.Data;
-using CourseProject.Areas.Admin.Models;
+﻿using CourseProject.Data.Entities;
+using CourseProject.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseProject.Areas.Admin.Controllers
@@ -29,10 +29,20 @@ namespace CourseProject.Areas.Admin.Controllers
         public IActionResult SaveNew(Course newCourseData)
         {
             // Sava data to db
-            _db.Courses.Add(newCourseData);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.Courses.Add(newCourseData);
+                newCourseData.lessons.Add(new Lesson("Test", "Test"));
+                newCourseData.lessons.Add(new Lesson("Test2", "Test"));
+                newCourseData.lessons.Add(new Lesson("Test3", "Test"));
 
-            return RedirectToAction(nameof(Index));
+
+                _db.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View();
         }
         public IActionResult Test()
         {
