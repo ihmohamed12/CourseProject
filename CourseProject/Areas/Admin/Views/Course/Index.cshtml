@@ -1,9 +1,6 @@
-﻿@using CourseProject.Data.Entities;
+﻿@model List<Course>
 
 
-@model List<Course>
-
-    
 
 <div class="page-content">
     <div class="page-content-inner">
@@ -29,29 +26,29 @@
 
         <div class="uk-child-width-1-3@m" uk-grid
              uk-scrollspy="cls: uk-animation-slide-bottom-small; target: > div ; delay: 200">
-             	@foreach (var item in Model)
-	{
-		
-            <div>
-                <a href="#">
-                    <div class="card animate-this uk-inline-clip">
+            @foreach (var item in Model)
+            {
+
+                <div>
+                    <a asp-area="Admin" asp-controller="Course" asp-action="Edit" asp-route-id="@item.Id">
+                        <div class="card animate-this uk-inline-clip">
                             <img src="@item.img" alt="">
-                        <div class="card-body text-center pb-3">
+                            <div class="card-body text-center pb-3">
                                 <h6 class=" mb-0"> @item.title </h6>
-                        </div>
-                        <div class="card-footer py-0 border-top-0">
-                            <div class="row align-items-center text-center">
-                                <div class="col-6 py-3">
+                            </div>
+                            <div class="card-footer py-0 border-top-0">
+                                <div class="row align-items-center text-center">
+                                    <div class="col-6 py-3">
                                         <a href="#" class="text-muted"> @item.price$ Sales </a>
-                                </div>
-                                <div class="col-6 py-3">
+                                    </div>
+                                    <div class="col-6 py-3">
                                         <a href="#" class="text-muted"> @item.studentsEnrolled Enrolled </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             }
         </div>
 

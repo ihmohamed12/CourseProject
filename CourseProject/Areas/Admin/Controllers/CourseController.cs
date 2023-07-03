@@ -33,10 +33,6 @@ namespace CourseProject.Areas.Admin.Controllers
             {
                 _db.Courses.Add(newCourseData);
                 newCourseData.lessons.Add(new Lesson("Test", "Test"));
-                newCourseData.lessons.Add(new Lesson("Test2", "Test"));
-                newCourseData.lessons.Add(new Lesson("Test3", "Test"));
-
-
                 _db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -50,6 +46,31 @@ namespace CourseProject.Areas.Admin.Controllers
             return View();
 
         }
+        [HttpGet]
+        public IActionResult Edit( int id)
+        {
+
+            var course = _db.Courses.Where(e => e.Id==id).FirstOrDefault();
+            if(course==null)
+            {
+                return NotFound();
+            }
+            return View(course);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Course model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(model);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
+
 
     }
 }

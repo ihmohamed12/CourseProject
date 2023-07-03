@@ -1,5 +1,4 @@
-﻿@using CourseProject.Data.Entities;
-
+﻿
 @model Course
 
 <!--
@@ -41,80 +40,48 @@
         </div>
 
 
-      <form asp-action="SaveNew" >
-               <div asp-validation-summary="All">  </div>
-            <div class="card">
-            <div class="card-header border-bottom-0 py-4">
-                <h5> Add Course </h5>
-            </div>
+    
+
+        <div class="page-content">
+            <div class="page-content-inner">
 
 
-            <div class="card-body">
+                <div class="card">
+                    <div class="card-header border-bottom-0 py-4">
+                        <h5> Course Manager </h5>
+                    </div>
 
 
-                        <div class="row">
-                            <div class="col-xl-9 m-auto">
+                    <ul class="uk-child-width-expand uk-tab"
+                        uk-switcher="connect: #course-edit-tab ; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                        <li class="uk-active"><a href="#"> Basic</a></li>
+                        <li><a href="#"> Curriculum</a></li>
+                        <li><a href="#">Meta data</a></li>
+                        <li><a href="#">Requirements</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Finish</a></li>
+                    </ul>
 
+                    
 
+                                <form asp-action="SaveNew">
 
-                            <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" asp-for="title">
-                                    Course title<span class="required">*</span>
-                                </label>
-                                <div class="col-md-9">
-                                    <input  type="text" asp-for="title" type="text" class="form-control" id="course_title"
-                                           placeholder="Enter course title"
-                                           >
-                                    <span asp-validation-for="title" class="alert-danger"></span>
+                                    <partial name="_form" />
+
+                                </form>
+
+                         
                                 </div>
-                            </div>
-                            <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" asp-for="price">
-                                    Course Price<span class="required">*</span>
-                                </label>
-                                <div class="col-md-9">
-                                    <input type="text" asp-for="price" type="number" class="form-control" id="course_title"
-                                           placeholder="Enter course price"
-                                           >
-                                </div>
-                            </div>
-                            <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" asp-for="studentsEnrolled">
-                                    Students Enrolled<span class="required">*</span>
-                                </label>
-                                <div class="col-md-9">
-                                    <input type="text" asp-for="studentsEnrolled" type="number" class="form-control" id="course_title"
-                                           placeholder="Enter number of students"
-                                           >
-                                </div>
-                            </div>
-                            <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" asp-for="img">
-                                    Course Image<span class="required">*</span>
-                                </label>
-                                <div class="col-md-9">
-                                    <input type="text" asp-for="img" type="text" class="form-control" id="course_title"
-                                           placeholder="Enter course Image URL"
-                                           >
-                                </div>
-                            </div>
 
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                            </div>
-                        </div>
 
 
 
 
 
                 </div>
-
+            </div>
         </div>
-
-        </form>
-
 
 
 
@@ -141,3 +108,13 @@
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+

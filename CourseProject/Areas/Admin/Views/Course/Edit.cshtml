@@ -1,0 +1,83 @@
+﻿
+
+<!--
+<form asp-action="SaveNew" >
+    <div class="mb-3">
+        <label asp-for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" asp-for="title">
+    </div>
+    <div class="mb-3">
+        <label asp-for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" asp-for="price">
+    </div>
+    <div class="mb-3">
+        <label asp-for="studentsEnrolled" class="form-label">Title</label>
+        <input type="number" class="form-control" asp-for="studentsEnrolled">
+    </div>
+    <div class="mb-3">
+        <label asp-for="img" class="form-label">Title</label>
+        <input type="text" class="form-control" asp-for="img">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+-->
+
+
+<div asp-validation-summary="All">  </div>
+<div class="card">
+    <div class="card-header border-bottom-0 py-4">
+        <h5> Add Course </h5>
+    </div>
+
+
+    <div class="card-body">
+        <div class="page-content">
+            <div class="page-content-inner">
+
+                <div class="d-flex">
+                    <nav id="breadcrumbs" class="mb-3">
+                        <ul>
+                            <li><a href="#"> <i class="uil-home-alt"></i> </a></li>
+                            <li><a href="#"> Course </a></li>
+                            <li>Create New Course</li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+                <form asp-action="Edit">
+
+                    <partial name="_form" />
+
+                </form>
+
+
+
+
+                <!-- footer
+                ================================================== -->
+                <div class="footer">
+                    <div class="uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand@s uk-first-column">
+                            <p>© 2019 <strong>Courseplus</strong>. All Rights Reserved. </p>
+                        </div>
+                        <div class="uk-width-auto@s">
+                            <nav class="footer-nav-icon">
+                                <ul>
+                                    <li><a href="#"><i class="icon-brand-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-youtube"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-twitter"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
